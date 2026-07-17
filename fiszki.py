@@ -1,6 +1,4 @@
-# add web dev 
-# przerzuć dodanie hasla jako funkcje
-
+#przerobić na -funkcje pod flask
 import random
 import sys
 

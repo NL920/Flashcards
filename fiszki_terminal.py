@@ -100,6 +100,7 @@ elif decyzja == "usun haslo":
         del linijki[position]
     with open('francuskie.txt', 'w', encoding='utf-8') as plik:
         plik.writelines(linijki)
+    print("Usunięto")
 
     with open('polskie.txt', 'r', encoding='utf-8') as filepl:
         linijki = filepl.readlines()

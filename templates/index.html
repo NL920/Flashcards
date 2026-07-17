@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    <title> Main page </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+</head>
+    
+<body>
+    <header class="main-header">
+        <h1> My website for flashcards </h1></div>
+    </header>
+    <div class="block"></div>
+    <nav class="nav-bar">
+        <h2>What do you wanna do today?</h2>
+        <ul>
+            <li><a href ="{{ url_for('flashcards') }}">Flashcards</a></li>
+            <li><a href ="{{ url_for('add') }}">Add flashcards</a></li>
+            <li><a href ="{{ url_for('delete') }}">Delete flashcards</a></li>
+            <li><a href ="{{ url_for('check') }}">Is there...?</a></li>
+        </ul>
+    </nav>
+    <div class="block"></div>
+    <main class="main-text">
+        <h4>This is a main page of my flashcards application. For now it is meant to be only for french flashcards - as I am eagerly learning this beautiful language. </h4>
+    </main>
+    
+    <aside class="side-bar">
+        <h2>Here i can add some side text</h2>
+    </aside>
+    <div class="block"></div>
+
+    <footer class="main-footer">
+        <h6> Copyright &copy; 2026 by NL </h6>
+    </footer>
+</body>
