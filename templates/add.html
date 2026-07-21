@@ -5,23 +5,42 @@
 </head>
     
 <body>
-    <header class=""main-header">
-        <div style="width: 50%; margin-left: auto; margin-right: auto;">
+    <header class="main-header">
         <h1> Do you wanna add a word? </h1>
-        <img src="Images/flag.jpg" alt="There's no picture"></div>
+        <div class = "block"></div>
     </header>
-<nav class="nav-bar">
-   
-</nav>
+
 <main class="main">
-    <div style="width: 50%; margin-left: auto; margin-right: auto;">
         <form method="POST">
             <label for="fname">Word you wanna add:</label><br>
-            <input type="text" id ="delete" name ="delete"  placeholder="Type here"></inputtype>
-            
-    </div>
+            <label for="addfrench">French word:</label>
+            <input type="text" id ="addfrench" name ="addfrench"  placeholder="Entry"><br>
+            <label for="addpolish">Polish translation:</label>
+            <input type="text" id ="addpolish" name ="addpolish"  placeholder="Translation"><br>
+            <input type="submit" id="submit" name="Add word">
+        </form>
+    
     <h4>You've learned a new, interesting word? Amazing! You can add the entry here! </h4>
 </main>
+<div class="block"></div>
+{% if message %}
+    <div class="success">
+        {{ message }}
+    </div>
+{% endif %}
+
+<div class="fixed">
+        <a href="https://github.com/NL920" target="_blank">
+            <img src="{{ url_for('static', filename='Images/github.png') }}" alt="GitHub">
+        </a>
+</div>
+
+<div class="menu">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='Images/off_button.png') }}" alt="menu">
+        </a>
+</div>
+
 <footer class="main-footer">
     <h6> Copyright 2026 by NL </h6>
 </footer>

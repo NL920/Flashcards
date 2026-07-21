@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import fiszki
 
 app = Flask(__name__)
 
@@ -10,9 +11,20 @@ def index():
 def flashcards():
     return render_template("flashcards.html")
 
-@app.route("/add")
+@app.route("/add", methods=["GET", "POST"])
 def add():
-    return render_template("add.html")
+
+    message=""
+
+    if request.method == "POST":
+        frword = request.form["addfrench"]
+        plword = request.form["addpolish"]
+        fiszki.dodaj_haslo(plword, frword)
+        if frword =="" or plword =="":
+            message = "Puste hasło!"
+        else:
+            message = "Dodano fiszkę!"
+    return render_template("add.html", message=message)
 
 @app.route("/delete")
 def delete():

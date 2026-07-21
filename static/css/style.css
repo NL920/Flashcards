@@ -16,22 +16,42 @@ a{
     color: white;   
 }
 .main-header {
-    /*how to add leading to main page in header*/
     background-image:url("../Images/flag.jpg");
     /*background-repeat: no-repeat;*/
     background-position: center ;
-    padding:10px 10px;
+    padding:20px 10px;
     border:2px rgb(67, 4, 30) solid;
     border-radius:2rem;
+    a{ color: black;}
 }
 .main-header h1{
-   
+   margin:auto;
     color: rgb(67, 4, 30);
     text-align:center;
     font-size: 60px;
     text-decoration:white /*underline overline*/;
     letter-spacing: 0.2em;
     padding: 24px 1px; 
+    border: 5px white solid;
+    background-color:rgb(219, 140, 140);
+    border-radius:2rem;
+}
+.sec-header{
+    background-image:url("../Images/flag.jpg");
+    /*background-repeat: no-repeat;*/
+    background-position: center ;
+    padding:10px 10px;
+    border:2px rgb(67, 4, 30) solid;
+    border-radius:2rem;
+    a{ color: black;}
+}
+.sec-header h1{
+    color: rgb(67, 4, 30);
+    text-align:center;
+    font-size: 40px;
+    text-decoration:white /*underline overline*/;
+    letter-spacing: 0.2em;
+    padding: 20px 1px; 
     border: 5px white solid;
     background-color:rgb(219, 140, 140);
     border-radius:2rem;
@@ -64,7 +84,7 @@ text-align: center;
 }
 .main-text{
     margin: auto;
-    padding: 20px 20px;
+    padding: 60px 20px;
     border: 2px rgb(67, 4, 30) dotted;
     background-color: rgb(219, 140, 140);
     border-radius:2rem;
@@ -78,6 +98,7 @@ text-align: center;
 }
 
 .main{
+    text-align: center;
     margin: auto;
     padding: 20px 20px;
     border: 2px rgb(67, 4, 30) dotted;
@@ -87,6 +108,36 @@ text-align: center;
     float: left;
     box-sizing: border-box;*/
 }
+
+.main-flash{
+ margin: auto;
+    padding: 60px 20px;
+    border: 2px rgb(67, 4, 30) dotted;
+    background-color: rgb(219, 140, 140);
+    border-radius:2rem;
+    width:80%;
+    float: left;
+    box-sizing: border-box;
+    height: 500px;/*można później zmienić na flexbox*/
+}
+
+.side-flash{
+    margin: auto;
+    padding: 36px 20px;
+    border: 2px rgb(67, 4, 30) dotted;
+    background-color: rgb(219, 140, 140);
+    border-radius:2rem;
+    width:20%;
+    float: right;
+    text-align: center;
+    box-sizing: border-box;
+    height: 500px;
+}
+.side-flash h4{ font-size: 30px;}
+
+.side-flash ul{text-align: center;
+    list-style-type: none;}
+
 .side-bar{
      margin: auto;
     padding: 36px 20px;
@@ -101,4 +152,51 @@ text-align: center;
 .main-footer{
     text-align:center;
     padding: 20px;
+}
+
+
+
+
+/*unique elements*/
+
+div.fixed {
+    /*background-image:url("../Images/github.png");*/
+    margin: auto;
+    position: fixed;
+    bottom: 200px;
+    right: 0px;
+}
+
+div.menu {
+    /*background-image:url("../Images/github.png");*/
+    margin: auto;
+    position: fixed;
+    bottom: 450px;
+    right: 0px;
+    border:black 2px;
+    border-radius:40%;
+}
+
+.form {
+    line-height: 50px;
+    text-align: center;
+    font-size: 50px;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+.form input{
+    border-color: black;
+    padding:10px 30px;
+}
+
+.success {
+    margin:auto;
+    text-align: center;
+    color: green;
+    font-weight: bold;
+    padding 10px;
+    background-color: white;
+    border:2px green dotted;
 }

@@ -7,7 +7,7 @@
     
 <body>
     <header class="main-header">
-        <h1> My website for flashcards </h1></div>
+        <h1> <a href="{{ url_for('index') }}">My website for flashcards </a></h1></div>
     </header>
     <div class="block"></div>
     <nav class="nav-bar">
@@ -21,11 +21,21 @@
     </nav>
     <div class="block"></div>
     <main class="main-text">
-        <h4>This is a main page of my flashcards application. For now it is meant to be only for french flashcards - as I am eagerly learning this beautiful language. </h4>
+        <h2>This is a main page of my flashcards application. For now it is meant to be only for french flashcards - as I am eagerly learning this beautiful language. </h2>
+        <h2>This project was developed as an educational project to demonstrate web application development using the Flask framework.</h2>
     </main>
     
+    <div class="fixed">
+        <a href="https://github.com/NL920" target="_blank">
+            <img src="{{ url_for('static', filename='Images/github.png') }}" alt="GitHub">
+        </a>
+    </div>
+
     <aside class="side-bar">
-        <h2>Here i can add some side text</h2>
+        <h4><ul><li>Flashcards: Practice your vocabulary with randomly selected flashcards. Enter the correct translation and receive instant feedback to reinforce your learning.</li>
+<li>Add: Create new flashcards by entering an French word and its corresponding translation. Newly added flashcards are immediately available for future study sessions.</li>
+<li>Delete: Remove flashcards that are no longer needed or contain incorrect information. This helps keep your vocabulary collection organized and up to date.</li>
+<li>Is there...?: Search for a specific word to verify whether it already exists in the flashcard collection. This feature helps prevent duplicate entries and makes it easy to find saved vocabulary.</li></ul></h4>
     </aside>
     <div class="block"></div>
 
