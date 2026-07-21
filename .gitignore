@@ -1,0 +1,6 @@
+polskie.txt
+francuskie.txt
+
+# Python
+__pycache__/
+*.pyc
