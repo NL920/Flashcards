@@ -1,18 +1,58 @@
 <!DOCTYPE html>
 <head>
     <title> Is there...? </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
     
 <body>
-    <header>
-        <div style="width: 50%; margin-left: auto; margin-right: auto;">
+    <header class="main-header">
         <h1> Is there...? browser </h1>
-        <img src="Images/flag.jpg" alt="There's no picture"></div>
+        <div class = "block"></div>
     </header>
-<main>
+
+<main class="main">
+        <form method="POST">
+            <label for="fname">French entry you want to check:</label><br>
+            <input type="text" id ="checkword" name ="checkword"  placeholder="Type here"><br>
+            <input type="submit" id="submit" name="Delete word">
+        </form>
+    
     <h4>Here you can check if the word you wanted to add already exists in app. </h4>
 </main>
-<footer>
+<div class="block"></div>
+{% if message %}
+    <div class="success">
+        {{ message }}
+    </div>
+{% endif %}
+<div class="block"></div>
+
+<div class="fixed">
+        <a href="https://github.com/NL920" target="_blank">
+            <img src="{{ url_for('static', filename='Images/github.png') }}" alt="GitHub">
+        </a>
+</div>
+
+<div class="menu">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='Images/off_button.png') }}" alt="menu">
+        </a>
+</div>
+
+<div id="letters">
+        <ul >
+            <li>é</li>
+            <li>è</li>
+            <li>à</li>
+            <li>â</li>
+            <li>ê</li>
+            <li>î</li>
+            <li>û</li>
+            <li>ç</li>
+        </ul>
+</div>
+
+<footer class="main-footer">
     <h6> Copyright 2026 by NL </h6>
 </footer>
 </body>

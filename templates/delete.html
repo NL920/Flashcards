@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <head>
     <title> Delete </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
     
 <body>
-    <header>
-        <div style="width: 50%; margin-left: auto; margin-right: auto;">
-        <h1> Do you wanna delete something? </h1>
-        <img src="Images/flag.jpg" alt="There's no picture"></div>
+    <header class="main-header">
+        <h1> Do you wanna delete a word? </h1>
+        <div class = "block"></div>
     </header>
-<nav>
 
-</nav>
-<main>
-    <div style="width: 50%; margin-left: auto; margin-right: auto;">
+<main class="main">
         <form method="POST">
-            <label for="fname">Word you wanna delete:</label><br>
-            <input type="text" id ="delete" name ="delete"  placeholder="Type here"></inputtype>
-            
-    </div>
-    <h4>Already memorized? Amazing! You can delete the entry from the register! </h4>
+            <label for="fname">French entry you want to delete:</label><br>
+            <input type="text" id ="deletefrench" name ="deletefrench"  placeholder="Type here"><br>
+            <input type="submit" id="submit" name="Delete word">
+        </form>
+    
+    <h4>If you already know an entry, you can delete it here! You've got all french entries below! </h4>
 </main>
-<footer>
+<div class="block"></div>
+{% if message %}
+    <div class="success">
+        {{ message }}
+    </div>
+{% endif %}
+<div class="block"></div>
+
+<main class = "main">
+    <h4>Available flashcards:</h4>
+    <ul>
+        {% for elem in elementy %}
+            <li>{{ elem }}</li>
+        {% endfor %}
+    </ul>
+</main>
+
+<div class="fixed">
+        <a href="https://github.com/NL920" target="_blank">
+            <img src="{{ url_for('static', filename='Images/github.png') }}" alt="GitHub">
+        </a>
+</div>
+
+<div class="menu">
+        <a href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='Images/off_button.png') }}" alt="menu">
+        </a>
+</div>
+
+<div id="letters">
+        <ul >
+            <li>é</li>
+            <li>è</li>
+            <li>à</li>
+            <li>â</li>
+            <li>ê</li>
+            <li>î</li>
+            <li>û</li>
+            <li>ç</li>
+        </ul>
+</div>
+
+<footer class="main-footer">
     <h6> Copyright 2026 by NL </h6>
 </footer>
 </body>
