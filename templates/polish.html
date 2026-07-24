@@ -4,7 +4,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     
 </head>
-    
+<script>
+    window.onload = function() {
+        window.scrollTo(0, document.body.scrollHeight * 0.3);
+    };
+</script>
+<script>
+    window.onload = function() {
+        document.getElementById("response").focus();
+    };
+</script>
 <body>
     <header class="main-header">
         <h1> <a href="{{ url_for('index') }}">My website for flashcards </a></h1></div>
@@ -13,10 +22,16 @@
         <h1>Polish to French flashcards</h1>
     </header>
     <div class="block"></div>
+    {% if definicja %}
+        <div class="success">
+            {{ definicja }}
+        </div>
+    {% endif %}
+        
     <main class="main-flash">
         <form class = "form" method="POST">
             <label for="Frword">French word:</label><br>
-            <input type="text" id="Frword" name="frword"><br>
+            <input type="text" id="response" name="response"><br>
             <input type="submit" id="submit" name="submit">
         </form>
     </main>
@@ -40,6 +55,12 @@
         </h4>
     </aside>
     <div class="block"></div>
+
+    {% if message %}
+        <div class="success">
+            {{ message }}
+        </div>
+    {% endif %}
 
     <footer class="main-footer">
         <h6> Copyright &copy; 2026 by NL </h6>

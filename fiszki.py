@@ -1,9 +1,9 @@
-#przerobić na -funkcje pod flask
 import random
-import sys
+import os
 
-def check(lista, haslo):
-    for elem in lista:
+def check(haslo):
+    polskie, francuskie = wczytaj_slowa()
+    for elem in francuskie:
         if elem.lower() == haslo.lower():
             return True
     return False
@@ -60,12 +60,11 @@ def dodaj_haslo(plword, frword):
     file.close()
     #print("Zapisałaś: "+ plslowo.strip() + " - " + frslowo.strip())
 
-def usun_haslo(plword, frword):
-    slowo = input("Podaj francuskie hasło które chcesz usunąć: ")
-    if slowo not in francuskie:
-        print("Nie ma takiego słowa")
+def usun_haslo(frword):
+    polskie, francuskie = wczytaj_slowa()
+    if frword not in francuskie and frword.lower() not in francuskie:
         return
-    position = francuskie.index(slowo)
+    position = francuskie.index(frword)
     tlumaczenie = polskie[position]
     with open('words.txt', 'r', encoding='utf-8') as file:
         linijki = file.readlines()
@@ -73,16 +72,10 @@ def usun_haslo(plword, frword):
         del linijki[position]
     with open('words.txt', 'w', encoding='utf-8') as plik:
         plik.writelines(linijki)
-
     with open('fiszki_storage.txt', 'a', encoding='utf-8') as plik:
-        plik.write(slowo+";"+tlumaczenie+"\n")
+        plik.write(frword+";"+tlumaczenie+"\n")
 
-def czy_jest(polskie, francuskie):
-    haslo = input("Podaj hasło:  ")
-    if check(francuskie, haslo) == True:
-        print("Tak, haslo jest w bazie")
-    else:
-        print("Nie ma takiego hasła")
+
 def wczytaj_slowa():
     francuskie = []
     polskie = []
@@ -95,23 +88,38 @@ def wczytaj_slowa():
     polskie = [str(x.strip()) for x in polskie]
     return polskie, francuskie
 
-'''
-polskie, francuskie = wczytaj_slowa()
-print("Co chcesz zrobić? Wybierz: fiszki/dodaj haslo/usun haslo/czy jest/end")
-decyzja = input("Wybór: ")
+def create_buffer():
+    if not os.path.exists("wordsbufor.txt"):
+        polskie = []
+        francuskie = []
+        with open("words.txt", "r", encoding="utf-8") as words:
+            for line in words:
+                pol, fran = line.strip().split(";")
+                polskie.append(pol.strip())
+                francuskie.append(fran.strip())
 
-if decyzja == "fiszki usuwane":
-    fiszki(polskie, francuskie)
+        with open("wordsbufor.txt", "w", encoding="utf-8") as bufor:
+            for i in range(len(polskie)):
+                bufor.write(polskie[i] + ";" + francuskie[i] + "\n")
 
-elif  decyzja == "dodaj haslo":
-    dodaj_haslo(polskie, francuskie)
+def wczytaj_buffor():
+    francuskie = []
+    polskie = []
+    with open('wordsbufor.txt', 'r', encoding='utf-8') as words:#with open sam zamyka plik
+        for line in words:
+            pol, fran = line.strip().split(";")
+            polskie.append((pol))
+            francuskie.append(( fran))
+    francuskie = [str(x.strip()) for x in francuskie]
+    polskie = [str(x.strip()) for x in polskie]
+    return polskie, francuskie
 
-elif decyzja == "usun haslo":
-    usun_haslo(polskie, francuskie)
 
-elif decyzja == "czy jest":
-    czy_jest(polskie, francuskie)
-        
-elif decyzja == "end":
-    print("Nie ma takiego słowa")
-    '''
+def remove_entry(position):
+    with open("wordsbufor.txt", "r", encoding="utf-8") as file:
+        lines = file.readlines()
+
+    lines.pop(position)
+
+    with open("wordsbufor.txt", "w", encoding="utf-8") as file:
+        file.writelines(lines)

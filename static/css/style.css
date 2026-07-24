@@ -118,7 +118,7 @@ text-align: center;
     width:80%;
     float: left;
     box-sizing: border-box;
-    height: 500px;/*można później zmienić na flexbox*/
+    height: 300px;/*można później zmienić na flexbox*/
 }
 
 .side-flash{
@@ -131,9 +131,9 @@ text-align: center;
     float: right;
     text-align: center;
     box-sizing: border-box;
-    height: 500px;
+    height: 300px;
 }
-.side-flash h4{ font-size: 30px;}
+.side-flash h4{ font-size: 20px;}
 
 .side-flash ul{text-align: center;
     list-style-type: none;}
@@ -161,10 +161,14 @@ text-align: center;
 
 div.fixed {
     /*background-image:url("../Images/github.png");*/
+    background-color: white;
     margin: auto;
     position: fixed;
     bottom: 200px;
     right: 0px;
+    border:1px white;
+    border-radius: 10%;
+    overflow: hidden;   
 }
 
 div.menu {
@@ -174,7 +178,8 @@ div.menu {
     bottom: 450px;
     right: 0px;
     border:black 2px;
-    border-radius:40%;
+    border-radius:50%;
+    overflow: hidden;   
 }
 
 .form {
@@ -196,7 +201,27 @@ div.menu {
     text-align: center;
     color: green;
     font-weight: bold;
-    padding 10px;
+    padding: 10px;
     background-color: white;
     border:2px green dotted;
+}
+
+#letters {
+    /*background-image:url("../Images/github.png");*/
+    text-align:center;
+    list-style: none;
+    background-color: white;
+    padding: 6px;
+    border: 2px dotted black;
+    margin: auto;
+    position: fixed;
+    bottom: 100px;
+    left: 1%;
+    transform: translateX(-50%);
+}
+#letters ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
 }
